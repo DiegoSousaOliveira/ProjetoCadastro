@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/cadastroPessoa.css' %}">
+</head>
+   
+<body>
+    <div class="conteiner">
+        <h1 class="titulo">Cadastre-se</h1>
+        <img src="{% static 'imagens/Usuário_De_Perfil_ícone.png' %}" 
+         alt="imagem não carregadar!" class="perfil">
+        <form class="formulario" action="{% url 'tabela_cadastro' %}" method="post">
+            {% csrf_token %}
+            <div class="dadosPessoa">
+                <label for="nome" class="form-label">Nome:</label>
+                <input type="text" name="nome" id="nome" class="form-control" required>
+            </div>
+            <div class="dadosPessoa">
+                <label for="Idade" class="form-label">Idade:</label>
+                <input type="number" name="idade" id="nome" class="form-control" required>
+            </div>
+            <div class="dadosPessoa">
+                <label for="cpf" class="form-label">Cpf:</label>
+                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="ex: xxx.xxx-xx" required>
+            </div>
+            <div class="dadosPessoa">
+                <label for="sexo" class="form-label">Sexo:</label>
+                <select name="sexo" id="sexo" required>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                </select>
+            </div>
+            <button type="submit" class="buton">Enviar</button>
+        </form>
+    </div> 
+</body>
+</html>
